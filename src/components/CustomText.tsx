@@ -43,5 +43,15 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: colors.light.primary,
         fontWeight: '700'
+    },
+    subTitle: {
+        fontSize: 16,
+        color: colors.light.primary,
+        fontWeight: '700'
+    },
+    normal: {
+        fontSize: 14,
+        colors: colors.light.text,
+        fontWeight: 'normal'
     }
 })
