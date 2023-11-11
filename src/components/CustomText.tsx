@@ -6,24 +6,34 @@ interface Props {
     children: String,
     savedStyle?: String,
     fontSize?: Number,
-    textColor?: ColorValue
+    color?: ColorValue
 
 }
 
 const CustomText = (props: Props): JSX.Element => {
-    const compFontSize = props.fontSize ? props.fontSize : null;
-    const compColor = props.textColor ? props.textColor : null;
+
+    const styleFilter = (filter) => {
+        const test = props[filter] ? props[filter] : styles[props.savedStyle] ? styles[props.savedStyle][filter] : null;
+        return test;
+    }
+
+    const compFontSize = styleFilter('fontSize')
+    const compColor = styleFilter('color')
     return (
         <Text style={
             [
                 {
                     fontSize: compFontSize,
                     color: compColor
-                }, styles[props.savedStyle]] as TextStyle
+                }] as TextStyle
         }>
             {props.children}
         </Text>
     )
+}
+
+CustomText.defaultProps = {
+
 }
 
 export default CustomText;
