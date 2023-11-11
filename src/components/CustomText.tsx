@@ -6,14 +6,19 @@ interface Props {
     children: String,
     savedStyle?: String,
     fontSize?: Number,
-    color?: ColorValue
+    color?: ColorValue,
+    padding?: Number,
+    paddingTop?: Number, 
+    paddingBottom ?: Number,
+    paddingStart ?: Number,
+    paddingEnd ?: Number,
 
 }
 
 const CustomText = (props: Props): JSX.Element => {
 
     const styleFilter = (filter) => {
-        const test = props[filter] ? props[filter] : styles[props.savedStyle] ? styles[props.savedStyle][filter] : null;
+        const test = props[filter] ?  props[filter] : styles[props.savedStyle][filter];
         return test;
     }
 
@@ -24,7 +29,8 @@ const CustomText = (props: Props): JSX.Element => {
             [
                 {
                     fontSize: compFontSize,
-                    color: compColor
+                    color: compColor,
+                    padding: props.padding,
                 }] as TextStyle
         }>
             {props.children}
@@ -40,17 +46,17 @@ export default CustomText;
 
 const styles = StyleSheet.create({
     title: {
-        fontSize: 18,
-        color: colors.light.primary,
+        fontSize: 24,
+        color: colors.light.text,
         fontWeight: '700'
     },
     subTitle: {
-        fontSize: 16,
-        color: colors.light.primary,
+        fontSize: 20,
+        color: colors.light.text,
         fontWeight: '700'
     },
     normal: {
-        fontSize: 14,
+        fontSize: 16,
         colors: colors.light.text,
         fontWeight: 'normal'
     }

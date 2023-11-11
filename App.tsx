@@ -22,7 +22,7 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <CustomText savedStyle={'title'} fontSize={60}>Title</CustomText>
+      <CustomText savedStyle={'title'}>Title</CustomText>
       <CustomImage borderRadius={10} borderWidth={5} src='https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg' />
     </SafeAreaView>
   );
